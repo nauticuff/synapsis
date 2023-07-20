@@ -1,9 +1,10 @@
 'use client'
 
-import Navbar from "../components/Navbar";
-import Title from "@/components/Title";
-import BlogCard from "@/components/BlogCard";
-import { useEffect, useState } from "react";
+import Button from '@mui/material/Button'
+import TestButton from '@/components/TestButton'
+import { useEffect, useState } from 'react';
+
+import BlogCard from '@/components/BlogCard';
 
 interface BlogCardProps {
   tags?: string[];
@@ -15,7 +16,7 @@ interface BlogCardProps {
   hero?: string
 }
 
-export default function Home() {
+export default function PortfolioPage() {
 
   const [userData, setUserData] = useState<any>()
 
@@ -52,41 +53,40 @@ export default function Home() {
       logData()
     }, [])
 
-    
+    if(userData === undefined) return
     const blogList: BlogCardProps[] = [
         {
             tags: ['Skincare'],
             title: 'Possibilities with different moods and atmospheres.',
-            avatar: userData?.avatar,
-            author: userData?.author,
-            category: userData?.category,
+            avatar: userData.avatar,
+            author: userData.author,
+            category: userData.category,
             description: 'Outdoor session photography with models offers fantastic opportunity to capture stunning images in natural settings.',
-            hero: userData?.hero
+            hero: userData.hero
         },{
             tags: ['Skincare'],
             title: 'Possibilities with different moods and atmospheres.',
-            avatar: userData?.avatar,
-            author: userData?.author,
-            category: userData?.category,
+            avatar: userData.avatar,
+            author: userData.author,
+            category: userData.category,
             description: 'Outdoor session photography with models offers fantastic opportunity to capture stunning images in natural settings.',
-            hero: userData?.hero
+            hero: userData.hero
         },{
             tags: ['Skincare'],
             title: 'Possibilities with different moods and atmospheres.',
-            avatar: userData?.avatar,
-            author: userData?.author,
-            category: userData?.category,
+            avatar: userData.avatar,
+            author: userData.author,
+            category: userData.category,
             description: 'Outdoor session photography with models offers fantastic opportunity to capture stunning images in natural settings.',
-            hero: userData?.hero
+            hero: userData.hero
         }
     ]
-
+    
   return (
-    <div className='p-5 pt-7 text-black dark:text-white mx-auto max-w-6xl'>
-      <Navbar />
-      <Title />
-      <div className='card-container flex flex-col gap-3 my-5 xs:flex-row xs:items-center xs:overflow-x-scroll md:grid md:grid-cols-2 lg:grid-cols-3'>
-        {blogList.map((blogItem, idx) => (
+    <div>
+      <TestButton />
+      <Button className='text-purple-500 text-4xl'>TEST</Button>
+      {blogList.map((blogItem, idx) => (
           <BlogCard
             key={idx} 
             tags={blogItem.tags} 
@@ -98,7 +98,6 @@ export default function Home() {
             hero={blogItem.hero}
           />
         ))}
-      </div>
     </div>
-  );
+  )
 }

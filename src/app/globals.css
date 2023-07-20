@@ -2,26 +2,177 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.card-container::-webkit-scrollbar {
+  display: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+html,
+body,
+*,
+::before,
+::after {
+  font-family: var(--font-rubik);
+}
+
+:root {
+  --icon_max_dimension: 80%
+}
+
+.focused-button {
+  position: relative;
+  overflow: hidden;
+  outline: none;
+  padding: .5rem .75rem;
+}
+
+.focused-button:focus::after {
+  content: '';
+  z-index: -1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 9999px;
+  transform: translate(-50%, -50%);
+  height: 125%;
+  width: 30%;
+  animation:
+    grow 150ms normal forwards,
+    ripple 1.3s infinite alternate cubic-bezier(.6, 0.3, 0.2, .8) 0ms;
+  background: #ff664e90;
+}
+
+.link-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.link-hover::before {
+  content: '';
+  position: absolute;
+  background: #000000;
+  flex: none;
+  height: 2px;
+  width: 0;
+  left: 50%; 
+  transform: translateX(-50%);
+  bottom: 5px;
+  transition: all 200ms ease;
+}
+
+.link-hover:hover::before {
+  width: calc(100% - 22px); 
+  height: 2px;
+}
+
+
+.focused-icon {
+  position: relative;
+  overflow: hidden;
+  outline: none;
+  padding: .5rem;
+}
+
+.focused-icon:focus::before {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 9999px;
+  transform: translate(-50%, -50%);
+  height: var(--icon_max_dimension);
+  width: var(--icon_max_dimension);
+  animation:
+    iconGrow .2s normal forwards,
+    iconRipple 1.3s infinite alternate cubic-bezier(.6, 0.3, 0.2, .8) 0ms;
+  background: #ff664e90;
+}
+
+.card:hover .card-inner {
+  transform: rotateY(-180deg)
+}
+
+.card-inner {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  /*for card flip only*/
+  transition: transform 800ms cubic-bezier(.4, .4, 0, 1);
+  transform-style: preserve-3d;
+}
+
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.card-gradient {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+}
+
+.face-front {
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+
+.face-back {
+  transform: rotateY(180deg);
+}
+
+.card:hover div .card-image {
+  transform: scale(1.2);
+  transition: transform 925ms cubic-bezier(.18, .11, .24, .99);
+  transition-delay: 100ms;
+}
+
+.card-image {
+  transition: transform 200ms ease;
+}
+
+.is-flipped {
+  transform: rotateY(180deg)
+}
+
+@keyframes ripple {
+  from {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+
+  to {
+    transform: translate(-50%, -50%) scale(1);
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@keyframes grow {
+  from {
+    width: 30%;
+    height: 30%;
+  }
+
+  to {
+    width: 75%;
+  }
+}
+
+@keyframes iconRipple {
+  from {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+
+  to {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes iconGrow {
+  from {
+    width: 30%;
+    height: 30%;
+  }
+
+  to {
+    width: var(--icon_max_dimension)
+  }
 }
