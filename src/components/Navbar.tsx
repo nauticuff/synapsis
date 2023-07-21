@@ -29,10 +29,17 @@ export default function Navbar({ menuButton }: any) {
 
   return (
     <nav className=''>
-      <div className='divider-appear w-full h-[2px] bg-black'></div>
+      <div className='first-divider-appear w-full h-[2px] bg-black'></div>
       <div className='flex items-center justify-between py-2'>
         <Link onMouseLeave={e => e.currentTarget.blur()} className='focused-icon transition-colors hover:bg-gray-400 rounded-full' href='/'>
-          <Image className='content-appear' src='/bubbles.svg' alt='bubbles logo' width={30} height={30} />
+          <Image 
+            className='content-appear' 
+            src='/bubbles.svg' 
+            alt='bubbles logo' 
+            width={30} 
+            height={30} 
+            priority={true}
+          />
         </Link>
         <ul className='content-appear hidden xs:flex xs:items-center uppercase text-[15px] font-semibold'>
           <li className='overflow-hidden py-1'>
@@ -56,7 +63,7 @@ export default function Navbar({ menuButton }: any) {
             </Link>
           </li>
         </ul>
-        <Button variant='text' className='xs:hidden font-semibold hover:bg-gray-100 text-black dark:text-white' onClick={toggleDrawer}>
+        <Button variant='text' className='content-appear xs:hidden font-semibold hover:bg-gray-100 text-black dark:text-white' onClick={toggleDrawer}>
           Menu
         </Button>
         <Drawer

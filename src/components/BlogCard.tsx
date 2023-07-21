@@ -53,6 +53,7 @@ export default function BlogCard({
                       alt='user'
                       height={40}
                       width={40}
+                      priority={true}
                     >
                     </Image>
                   }
@@ -68,16 +69,18 @@ export default function BlogCard({
             </div>
           </div>
         </div>
-        <div className='overflow-hidden card-face face-back border-black border-2 rounded-tr-[60px] rounded-bl-[60px] h-full w-full'>
+        <div className='relative overflow-hidden card-face face-back border-black border-2 rounded-tr-[60px] rounded-bl-[60px] h-full w-full'>
           <Image
-            className='card-image rounded-[inherit] brightness-[.6] z-[-2]'
+            className='object-cover object-center card-image rounded-[inherit] brightness-[.6] z-[-2]'
             src='https://plus.unsplash.com/premium_photo-1681566468589-ae19cf1268ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80'
             //src={'https://images.unsplash.com/photo-1597253702831-d6a6d0be4f21?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MzQ2fDB8MXxzZWFyY2h8MTA0fHxmYXNoaW9ufGVufDB8fHx8MTY4NzI2NjMyMXww&ixlib=rb-4.0.3&q=80&w=1080'}
             alt='aesthetic'
-            fill
+            fill={true}
+            sizes='(max-width: 542px) 100vw, (max-width: 1026px) 50vw, 33vw'
+            priority={true}
             // layout='fill'
-            objectFit='cover'
-            objectPosition='center'
+            // objectFit='cover'
+            // objectPosition='center'
           />
           <div className='h-2/5 w-full bottom-0 card-gradient absolute'></div>
           <div className='h-full flex flex-col justify-between p-7 text-white relative z-10'>

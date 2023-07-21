@@ -83,7 +83,7 @@ export default function Home() {
 
   return (
     <StyledEngineProvider>
-      <div className='p-5 pt-7 text-black dark:text-white mx-auto max-w-6xl'>
+      <div className='p-5 pt-7 text-black dark:text-white mx-auto max-w-7xl'>
         <Navbar />
         <Title />
         <div className='card-container flex flex-col gap-3 my-5 xs:flex-row xs:items-center xs:overflow-x-scroll md:grid md:grid-cols-2 lg:grid-cols-3'>

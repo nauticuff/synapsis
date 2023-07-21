@@ -139,20 +139,31 @@ body,
   transform: rotateY(180deg)
 }
 
+.title-appear {
+  transform: translateY(75px);
+  opacity: 0;
+  animation: titleAppear 800ms ease forwards;
+  animation-delay: 900ms;
+}
+
 .content-appear {
   transform: translateY(20px);
   opacity: 0;
-  animation-timing-function: linear;
   animation: contentAppear 1000ms ease forwards;
   animation-delay: 1250ms;
 }
 
 .divider-appear {
   transform: scale(0, 1);
-  animation-timing-function: linear;
-  will-change: transform;
+  opacity: 0;
   animation: dividerAppear 1000ms cubic-bezier(.4,.4,0,1) forwards;
   animation-delay: 1000ms;
+}
+
+.first-divider-appear {
+  transform: scale(0, 1);
+  animation: firstDivider 1000ms cubic-bezier(.4, .4, 0, 1) forwards;
+  animation-delay: 750ms;
 }
 
 /* BEGIN ANIMATIONS */
@@ -208,14 +219,28 @@ body,
   }
 }
 
-@keyframes dividerAppear {
+@keyframes firstDivider {
   to {
     transform: scale(.99, 1);
   }
 }
 
+@keyframes dividerAppear {
+  to {
+    transform: scale(.99, 1);
+    opacity: 1;
+  }
+}
+
 @keyframes fadeIn {
   to {
+    opacity: 1;
+  }
+}
+
+@keyframes titleAppear {
+  to {
+    transform: translateY(0);
     opacity: 1;
   }
 }
