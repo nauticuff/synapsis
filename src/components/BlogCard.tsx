@@ -28,7 +28,7 @@ export default function BlogCard({
 }: BlogCardProps): JSX.Element {
 
   return (
-    <div className='card relative w-full h-[400px] xs:h-[525px]'>
+    <div className='content-appear card relative w-full h-[400px] xs:h-[525px]'>
       <div className='card-inner xs:w-[60vw] md:w-full'>
         <div className='card-face face-front border-black border-2 rounded-tl-[60px] rounded-br-[60px]'>
           <div className='h-full flex flex-col justify-between'>

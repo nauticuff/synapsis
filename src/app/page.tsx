@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar";
 import Title from "@/components/Title";
 import BlogCard from "@/components/BlogCard";
 import { useEffect, useState } from "react";
-
+import { StyledEngineProvider } from "@mui/material";
 interface BlogCardProps {
   tags?: string[];
   title: string;
@@ -82,23 +82,25 @@ export default function Home() {
     ]
 
   return (
-    <div className='p-5 pt-7 text-black dark:text-white mx-auto max-w-6xl'>
-      <Navbar />
-      <Title />
-      <div className='card-container flex flex-col gap-3 my-5 xs:flex-row xs:items-center xs:overflow-x-scroll md:grid md:grid-cols-2 lg:grid-cols-3'>
-        {blogList.map((blogItem, idx) => (
-          <BlogCard
-            key={idx} 
-            tags={blogItem.tags} 
-            title={blogItem.title}
-            avatar={blogItem.avatar}
-            author={blogItem.author}
-            category={blogItem.category}
-            description={blogItem.description}
-            hero={blogItem.hero}
-          />
-        ))}
+    <StyledEngineProvider>
+      <div className='p-5 pt-7 text-black dark:text-white mx-auto max-w-6xl'>
+        <Navbar />
+        <Title />
+        <div className='card-container flex flex-col gap-3 my-5 xs:flex-row xs:items-center xs:overflow-x-scroll md:grid md:grid-cols-2 lg:grid-cols-3'>
+          {blogList.map((blogItem, idx) => (
+            <BlogCard
+              key={idx} 
+              tags={blogItem.tags} 
+              title={blogItem.title}
+              avatar={blogItem.avatar}
+              author={blogItem.author}
+              category={blogItem.category}
+              description={blogItem.description}
+              hero={blogItem.hero}
+            />
+          ))}
+        </div>
       </div>
-    </div>
+    </StyledEngineProvider>
   );
 }

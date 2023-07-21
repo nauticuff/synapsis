@@ -1,3 +1,4 @@
+import Script from 'next/script';
 import './globals.css';
 import CheckTheme from './HelperFunctions/CheckTheme';
 import type { Metadata } from 'next';
@@ -28,8 +29,15 @@ export default function RootLayout({
 
   return (
     <html lang='en'>
+      <Script id='theme-toggle'>
+      {`if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark')
+        } else {
+          document.documentElement.classList.remove('dark')
+        }`}
+      </Script>
+      {/* <CheckTheme /> */}
       <body className={`${syne.variable} ${rubik.variable} bg-[#e9e4de] dark:bg-zinc-700`}>
-      <CheckTheme />
         {children}
       </body>
     </html>
