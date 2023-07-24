@@ -6,7 +6,7 @@ export default function Title() {
   return (
     <section className='mt-3'>
       <div className="overflow-hidden">
-        <h1 className="title-appear [font-family:--font-syne] uppercase text-center leading-[1] tracking-tight text-[14vw] font-semibold xs:text-[16vw] xs:font-medium xl:text-[220px]">Synapsis</h1>
+        <h1 className="title-appear [font-family:--font-syne] uppercase text-center leading-[1] tracking-tight text-[15vw] font-semibold xs:text-[16vw] xs:font-medium lg:text-[200px]">Synapsis</h1>
       </div>
       {/* <div className='w-full h-[2px] bg-black'></div> */}
       <Divider />

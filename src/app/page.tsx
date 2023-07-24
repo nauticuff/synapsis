@@ -86,10 +86,10 @@ export default function Home() {
       <div className='p-5 pt-7 text-black dark:text-white mx-auto max-w-7xl'>
         <Navbar />
         <Title />
-        <div className='card-container flex flex-col gap-3 my-5 xs:flex-row xs:items-center xs:overflow-x-scroll md:grid md:grid-cols-2 lg:grid-cols-3'>
+        <div className='card-container flex flex-col gap-3 my-5 overflow-visible xs:flex-row xs:items-center xs:overflow-x-scroll md:grid md:grid-cols-2 lg:grid-cols-3'>
           {blogList.map((blogItem, idx) => (
             <BlogCard
-              key={idx} 
+              key={idx}
               tags={blogItem.tags} 
               title={blogItem.title}
               avatar={blogItem.avatar}
@@ -97,6 +97,7 @@ export default function Home() {
               category={blogItem.category}
               description={blogItem.description}
               hero={blogItem.hero}
+              animationDelay={idx * 0.1}
             />
           ))}
         </div>

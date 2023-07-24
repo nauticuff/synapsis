@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Image from 'next/image';
 import Button from '@mui/material/Button';
@@ -14,7 +14,7 @@ interface BlogCardProps {
   category: string;
   description?: string;
   hero?: string;
-
+  animationDelay: number
 }
 
 export default function BlogCard({
@@ -24,11 +24,12 @@ export default function BlogCard({
   author,
   category,
   description,
-  hero
+  hero,
+  animationDelay
 }: BlogCardProps): JSX.Element {
 
   return (
-    <div className='content-appear card relative w-full h-[400px] xs:h-[525px]'>
+    <div style={{animationDelay: `${(1.1 + animationDelay).toFixed(2)}s`}} className='card content-appear relative w-full h-[400px] xs:h-[525px]'>
       <div className='card-inner xs:w-[60vw] md:w-full'>
         <div className='card-face face-front border-black border-2 rounded-tl-[60px] rounded-br-[60px]'>
           <div className='h-full flex flex-col justify-between'>
@@ -78,9 +79,9 @@ export default function BlogCard({
             fill={true}
             sizes='(max-width: 542px) 100vw, (max-width: 1026px) 50vw, 33vw'
             priority={true}
-            // layout='fill'
-            // objectFit='cover'
-            // objectPosition='center'
+          // layout='fill'
+          // objectFit='cover'
+          // objectPosition='center'
           />
           <div className='h-2/5 w-full bottom-0 card-gradient absolute'></div>
           <div className='h-full flex flex-col justify-between p-7 text-white relative z-10'>
