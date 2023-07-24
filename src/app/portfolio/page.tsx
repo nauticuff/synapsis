@@ -96,6 +96,7 @@ export default function PortfolioPage() {
             category={blogItem.category}
             description={blogItem.description}
             hero={blogItem.hero}
+            animationDelay={idx * 0.1}
           />
         ))}
     </div>

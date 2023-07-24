@@ -14,7 +14,7 @@ interface BlogCardProps {
   category: string;
   description?: string;
   hero?: string;
-  animationDelay: number
+  animationDelay: number;
 }
 
 export default function BlogCard({
