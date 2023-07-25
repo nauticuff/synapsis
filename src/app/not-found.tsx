@@ -4,7 +4,7 @@ import { useEffect } from "react"
 import CheckTheme from "./HelperFunctions/CheckTheme"
 import Navbar from "@/components/Navbar"
 
-export default function notFound() {
+export default function NotFound() {
 
   useEffect(() => {
     try {
