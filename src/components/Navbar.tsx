@@ -5,10 +5,12 @@ import Link from 'next/link';
 import Drawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
+
+import Tooltip from '@mui/material/Tooltip';
 import IconButton from '@mui/material/IconButton'
 import CloseIcon from '@mui/icons-material/Close'
 
-import ThemeToggle from './ThemeToggle';
+import ThemeToggle from './ThemeToggleMobile';
 import Image from 'next/image';
 import MenuButton from './MenuButton';
 
@@ -73,10 +75,10 @@ export default function Navbar({ menuButton }: any) {
           onClose={toggleDrawer}
         >
           <Box
-            sx={{ width: 250 }}
+            sx={{ width: 280 }}
             role="presentation"
           >
-            <ul className='flex flex-col gap-3 relative p-4'>
+            <ul className='flex flex-col gap-3 relative p-4 text-[15px]'>
               <li className='transition-colors flex items-center justify-between'>
                 <Link className='hover:text-sky-300 focused-button' href='#'>
                   Home
@@ -85,11 +87,11 @@ export default function Navbar({ menuButton }: any) {
                   <CloseIcon />
                 </IconButton>
               </li>
-              <li className='hover:bg-slate-200'>
+              <li className=''>
                 <Link href='/Blah'>To Nowhere</Link>
               </li>
-              <li className='hover:bg-slate-200'>Click</li>
-              <li className='hover:bg-slate-200'>
+              <li className=''>Click</li>
+              <li className=''>
                 <ThemeToggle />
               </li>
             </ul>

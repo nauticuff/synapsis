@@ -28,7 +28,7 @@ export default function RootLayout({
 }) {
 
   return (
-    <html lang='en'>
+    <html lang='en' id='app'>
       <Script id='theme-toggle'>
       {`if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
           document.documentElement.classList.add('dark')
@@ -37,7 +37,7 @@ export default function RootLayout({
         }`}
       </Script>
       {/* <CheckTheme /> */}
-      <body className={`${syne.variable} ${rubik.variable} bg-[#e9e4de] dark:bg-zinc-700`}>
+      <body className={`${syne.variable} ${rubik.variable}`}>
         {children}
       </body>
     </html>
