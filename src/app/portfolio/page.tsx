@@ -11,13 +11,24 @@ import { useEffect, useState } from 'react';
 
 export default function Portfolio() {
 
-  const [theme, setTheme] = useState(localStorage.theme ? localStorage.theme + ' mode' : 'system preference');
+  const [theme, setTheme] = useState('');
 
-  if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    document.documentElement.classList.add('dark')
-  } else {
-    document.documentElement.classList.remove('dark')
-  }
+  useEffect(() => {
+
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+
+    if (localStorage.theme === 'light') {
+      setTheme('light mode')
+    } else if (localStorage.theme === 'dark') {
+      setTheme('dark mode')
+    } else if (localStorage.theme === undefined) {
+      setTheme('system preference')
+    }
+  })
 
   function handleTheme(themeChoice: string) {
     if (themeChoice === 'system preference') {
@@ -36,11 +47,12 @@ export default function Portfolio() {
 
   return (
     <div className='bg-yellow-200 dark:bg-black h-screen dark:text-white w-full grid place-items-center'>
-      <Button className='bg-purple-500 dark:bg-pink-600 hover:bg-black dark:hover:bg-black dark:text-white'>
+      <Button className='bg-purple-500 dark:bg-pink-600 dark:hover:bg-white dark:text-white'>
         Hello Test Here
       </Button>
-      <p className='text-4xl bg-orange-600 font-bold shadow-lg rounded-md p-4'>Is this styled?</p>
+      <p className='text-4xl bg-orange-600 font-bold shadow-lg rounded-md'>Is this styled?</p>
       <Select
+        className='text-black dark:border-white border-1 dark:text-white'
         value={theme}
         onChange={handleChange}
         displayEmpty
@@ -48,14 +60,14 @@ export default function Portfolio() {
         // label="Theme menu"
         inputProps={{ 'aria-label': 'Without label' }}
       >
-        <MenuItem value='light mode'>
-          <LightModeIcon className='mr-3' /> Light
+        <MenuItem value='light mode' className='bg-gray-400 text-white'>
+          <LightModeIcon className='mr-3 dark:text-white' /> Light
         </MenuItem>
-        <MenuItem value='dark mode'>
-          <DarkModeIcon className='mr-3' /> Dark
+        <MenuItem value='dark mode'className='bg-gray-400 text-white'>
+          <DarkModeIcon className='mr-3 dark:text-white' /> Dark
         </MenuItem>
-        <MenuItem value='system preference'>
-          <DevicesIcon className='mr-3' /> System
+        <MenuItem value='system preference' className='bg-gray-400 text-white'>
+          <DevicesIcon className='mr-3 dark:text-white' /> System
         </MenuItem>
       </Select>
     </div>
