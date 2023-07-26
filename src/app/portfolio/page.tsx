@@ -46,13 +46,13 @@ export default function Portfolio() {
   };
 
   return (
-    <div className='bg-yellow-200 dark:bg-black h-screen dark:text-white w-full grid place-items-center'>
-      <Button className='bg-purple-500 dark:bg-pink-600 dark:hover:bg-white dark:text-white'>
+    <div className='bg-yellow-200 h-screen  w-full grid place-items-center'>
+      <Button className='bg-purple-500 '>
         Hello Test Here
       </Button>
       <p className='text-4xl bg-orange-600 font-bold shadow-lg rounded-md'>Is this styled?</p>
       <Select
-        className='text-black dark:border-white border-1 dark:text-white'
+        className='text-black  border-1'
         value={theme}
         onChange={handleChange}
         displayEmpty
@@ -61,13 +61,13 @@ export default function Portfolio() {
         inputProps={{ 'aria-label': 'Without label' }}
       >
         <MenuItem value='light mode' className='bg-gray-400 text-white'>
-          <LightModeIcon className='mr-3 dark:text-white' /> Light
+          <LightModeIcon className='mr-3' /> Light
         </MenuItem>
         <MenuItem value='dark mode'className='bg-gray-400 text-white'>
-          <DarkModeIcon className='mr-3 dark:text-white' /> Dark
+          <DarkModeIcon className='mr-3 ' /> Dark
         </MenuItem>
         <MenuItem value='system preference' className='bg-gray-400 text-white'>
-          <DevicesIcon className='mr-3 dark:text-white' /> System
+          <DevicesIcon className='mr-3 ' /> System
         </MenuItem>
       </Select>
     </div>

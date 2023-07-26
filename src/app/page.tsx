@@ -4,7 +4,6 @@ import Navbar from "../components/Navbar";
 import Title from "@/components/Title";
 import BlogCard from "@/components/BlogCard";
 import { useEffect, useState } from "react";
-// import { StyledEngineProvider } from "@mui/material";
 interface BlogCardProps {
   tags?: string[];
   title: string;
@@ -82,9 +81,8 @@ export default function Home() {
   ]
 
   return (
-    // <StyledEngineProvider>
-    <>
-      <div className='p-5 pt-7 text-black dark:text-white mx-auto max-w-7xl bg-[#e9e4de] dark:bg-zinc-700'>
+    <div className="bg-[#e9e4de] ">
+      <div className='p-5 pt-7 text-black mx-auto max-w-7xl'>
         <header>
           <Navbar />
           <Title />
@@ -107,7 +105,6 @@ export default function Home() {
           </div>
         </main>
       </div>
-    </>
-    // </StyledEngineProvider>
+    </div>
   );
 }

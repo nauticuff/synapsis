@@ -84,7 +84,7 @@ export default function BlogCard({
           // objectPosition='center'
           />
           <div className='h-2/5 w-full bottom-0 card-gradient absolute'></div>
-          <div className='h-full flex flex-col justify-between p-7 text-white relative z-10'>
+          <div className='h-full flex flex-col justify-between py-4 px-7 text-white relative z-10'>
             <div className='rounded-full flex flex-col gap-12'>
               <p className='text-[17px] uppercase rounded-full border-white border-1 w-fit px-2 py-0 tracking-tighter leading-4 font-medium'>
                 {tags && tags[0]}

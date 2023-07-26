@@ -6,15 +6,16 @@ import Drawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 
-import Tooltip from '@mui/material/Tooltip';
+// import Tooltip from '@mui/material/Tooltip';
 import IconButton from '@mui/material/IconButton'
 import CloseIcon from '@mui/icons-material/Close'
 
-import ThemeToggle from './ThemeToggleMobile';
+// import ThemeToggle from './ThemeToggleMobile';
 import Image from 'next/image';
-import MenuButton from './MenuButton';
+// import MenuButton from './MenuButton';
+import linkList from '@/app/stores/navbarStore';
 
-export default function Navbar({ menuButton }: any) {
+export default function Navbar() {
   const [state, setState] = useState(false)
 
   function toggleDrawer(event: React.KeyboardEvent | React.MouseEvent) {
@@ -55,7 +56,7 @@ export default function Navbar({ menuButton }: any) {
             </Link>
           </li>
           <li className='overflow-hidden py-1'>
-            <Link onMouseLeave={e => e.currentTarget.blur()} className='px-3 py-2 link-hover focused-button' href='#'>
+            <Link onMouseLeave={e => e.currentTarget.blur()} className='px-3 py-2 link-hover focused-button' href='/portfolio'>
               Portfolio
             </Link>
           </li>
@@ -65,11 +66,11 @@ export default function Navbar({ menuButton }: any) {
             </Link>
           </li>
         </ul>
-        <Button variant='text' className='content-appear xs:hidden font-semibold hover:bg-gray-100 text-black dark:text-white' onClick={toggleDrawer}>
+        <Button variant='text' className='content-appear xs:hidden font-semibold hover:bg-gray-100 text-black' onClick={toggleDrawer}>
           Menu
         </Button>
         <Drawer
-          classes={{ paper: 'bg-[#e9e4de] dark:bg-grey-400' }}
+          classes={{ paper: 'bg-[#e9e4de]' }}
           anchor='right'
           open={state}
           onClose={toggleDrawer}
@@ -91,9 +92,6 @@ export default function Navbar({ menuButton }: any) {
                 <Link href='/Blah'>To Nowhere</Link>
               </li>
               <li className=''>Click</li>
-              <li className=''>
-                <ThemeToggle />
-              </li>
             </ul>
           </Box>
         </Drawer>
