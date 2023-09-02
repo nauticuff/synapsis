@@ -81,7 +81,7 @@ export default function Home() {
   ]
 
   return (
-    <div className="bg-[#e9e4de] ">
+    <div className="bg-[#e9e4de] min-h-screen">
       <div className='p-5 pt-7 text-black mx-auto max-w-7xl'>
         <header>
           <Navbar />
